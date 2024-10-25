@@ -1,0 +1,377 @@
+/* ĐÀO THÀNH ĐẠT RESET TÍNH MẶC ĐỊNH CỦA TRÌNH DUYỆT */
+* {
+    margin: 0; /* Loại bỏ margin mặc định của tất cả các phần tử */
+    padding: 0; /* Loại bỏ padding mặc định của tất cả các phần tử */
+    box-sizing: border-box; /* Đảm bảo padding và border được tính vào tổng kích thước của phần tử */
+  }
+  
+  /* Thay đổi font mặc định */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6; /* Tăng khoảng cách giữa các dòng văn bản để dễ đọc */
+    color: #000000;
+    background: linear-gradient(
+      to bottom,
+      rgb(254, 236, 75),
+      rgba(255, 0, 0, 0) 5%
+    );
+  }
+  
+  /* Header */
+  header {
+    position: relative; /* Đặt header ở vị trí tương đối để có thể dùng các thuộc tính vị trí tuyệt đối bên trong */
+    text-align: center;
+    width: 100%;
+  }
+  h1 {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    top: 50%; /* Điều chỉnh khoảng cách từ trên */
+    left: 50%; /* Giữa banner */
+    transform: translateX(-50%); /* Giữa chính xác */
+    color: white; /* Màu chữ */
+    font-size: 2.5em; /* Kích thước chữ */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Đổ bóng chữ để dễ nhìn hơn */
+    z-index: 10; /* Đảm bảo tiêu đề nằm trên các phần tử khác */
+    font-family: "Bungee Tint", sans-serif; /* font chữ tiêu đề được liên kết từ google font */
+    font-weight: 400; /* kích thước chữ */
+    font-size: 70px; /* cỡ chữ tiêu đề */
+  }
+  
+  /* Phần banner */
+  .banner {
+    position: relative; /* Đặt phần banner ở vị trí tương đối để các phần tử bên trong có thể được căn chỉnh */
+    width: 100%;
+    height: 570px;
+  }
+  
+  /* Phần trình chiếu ảnh */
+  .slides {
+    display: flex; /* Sử dụng Flexbox để xếp các slide theo hàng ngang */
+    transition: transform 0.1s ease-in-out; /* Thêm hiệu ứng chuyển tiếp mượt mà khi thay đổi slide */
+  }
+  
+  /* Mỗi slide */
+  .slide {
+    width: 100%;
+    height: 570px;
+    object-fit: cover; /* Đảm bảo ảnh được cắt và lấp đầy khu vực mà không bị biến dạng */
+  }
+  /* Nút điều hướng slide trước và tiếp theo */
+  .prev,
+  .next {
+    position: absolute; /* Đặt nút ở vị trí tuyệt đối so với phần tử chứa của nó (banner) */
+    top: 50%; /* Đặt nút ở giữa chiều cao của phần tử chứa */
+    width: 50px; /* Chiều rộng của nút */
+    height: 50px; /* Chiều cao của nút */
+    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ cho nút */
+    color: #fff; /* Màu chữ của nút */
+    font-size: 30px; /* Kích thước chữ của nút */
+    cursor: pointer; /* Hiển thị con trỏ chuột như một nút bấm khi di chuột qua */
+    transform: translateY(
+      -50%
+    ); /* Dịch chuyển nút lên một nửa chiều cao của nó để căn giữa dọc */
+    z-index: 1; /* Đảm bảo nút nằm trên cùng của các phần tử khác */
+  }
+  
+  .prev {
+    left: 10px; /* Đặt nút "Trước" cách lề trái 10px */
+    border-radius: 10px; /* Bo tròn viền góc nút "Trước" */
+  }
+  
+  .next {
+    right: 10px; /* Đặt nút "Tiếp theo" cách lề phải 10px */
+    border-radius: 10px; /* Bo tròn viền góc nút "Sau" */
+  }
+  
+  /* Phần giới thiệu */
+  .intro /* phần ngôi sao */ {
+    display: flex;
+    padding: 10px; /* Khoảng cách giữa nội dung và viền */
+    background-color: #ff0000; /* Màu nền nhẹ cho phần tử */
+  }
+  .star {
+    width: 40px; /* Điều chỉnh kích thước biểu tượng sao */
+    height: 40px;
+    fill: rgb(255, 217, 0); /* Màu sắc của sao */
+    margin-left: 700px;
+  }
+  /* Khung bảng các vùng miền */
+  .regions {
+    display: flex; /* Sử dụng Flexbox để xếp các vùng miền theo hàng ngang */
+    justify-content: space-around; /* Phân phối các vùng miền đều trên chiều ngang */
+    flex-wrap: wrap; /* Cho phép các vùng miền tự động xuống dòng nếu không đủ không gian */
+    padding: 20px; /* Thêm khoảng cách bên trong của vùng chứa các vùng miền */
+  }
+  
+  /* Mỗi vùng miền */
+  .region {
+    background-color: rgb(233, 232, 232);
+    position: relative; /* Đặt vùng miền ở vị trí tương đối để các phần tử bên trong có thể được căn chỉnh */
+    width: 30%; /* Chiều rộng của mỗi vùng miền bằng 30% chiều rộng của phần tử chứa */
+    margin: 10px 0; /* Khoảng cách trên và dưới của mỗi vùng miền */
+    overflow: hidden; /* Ẩn phần bên ngoài chiều rộng và chiều cao của vùng miền */
+    border-radius: 10px; /* Bo tròn các góc của vùng miền */
+    transition: transform 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển tiếp khi thay đổi kích thước hoặc bóng */
+    box-shadow: 1px 2px rgb(186, 186, 186);
+  }
+  
+  .region img {
+    width: 100%; /* Đảm bảo ảnh lấp đầy chiều rộng của vùng miền */
+    height: 270px; /* Đặt chiều cao cố định cho ảnh */
+    transition: transform 0.3s; /* Thêm hiệu ứng chuyển tiếp khi thay đổi kích thước của ảnh */
+  }
+  
+  .region:hover {
+    transform: scale(1.05); /* Phóng to vùng miền khi di chuột qua */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Tăng cường bóng của vùng miền khi di chuột qua */
+  }
+  
+  .region:hover img {
+    transform: scale(1.1); /* Phóng to ảnh khi di chuột qua vùng miền */
+  }
+  
+  /* Tiêu đề của vùng miền */
+  .region h2 {
+    position: absolute; /* Đặt tiêu đề ở vị trí tuyệt đối so với vùng miền */
+    bottom: 20px; /* Đặt tiêu đề cách lề dưới của vùng miền 20px */
+    left: 20px; /* Đặt tiêu đề cách lề trái của vùng miền 20px */
+    color: #fff; /* Màu chữ của tiêu đề */
+    font-size: 1.5em; /* Kích thước chữ của tiêu đề */
+  }
+  
+  /* Nút "Miền Bắc, Miền Trung, Miền Nam" nằm trong region */
+  .learn-more {
+    display: block; /* Hiển thị nút như một phần tử khối để có thể căn giữa dễ dàng */
+    padding: 10px; /* Thêm khoảng cách bên trong của nút */
+    margin: 20px; /* Thêm khoảng cách bên ngoài của nút */
+    text-align: center; /* Căn giữa văn bản trong nút */
+    background-color: #ff4848; /* Màu nền đỏ cho nút */
+    color: #fff; /* Màu chữ trắng cho nút */
+    text-decoration: none; /* Loại bỏ gạch chân của liên kết */
+    border-radius: 150px; /* Bo tròn các góc của nút để tạo hình dạng tròn */
+    transition: background-color 0.3s; /* Thêm hiệu ứng chuyển tiếp khi thay đổi màu nền */
+    font-size: 20px; /* Kích thước chữ của nút */
+  }
+  
+  .learn-more:hover {
+    background-color: #ff0000; /* Thay đổi màu nền khi di chuột qua nút */
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center; /* Căn giữa nội dung trong footer */
+    padding: 10px; /* Thêm khoảng cách bên trong của footer */
+    background: #b0aeae; /* Màu nền nhạt cho footer */
+  }
+  .footer-info {
+    text-align: center;
+    font-size: 0.9em;
+  }
+  .footer-links {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  /* Đoạn văn */
+  p {
+    margin-right: 350px; /* Khoảng cách bên phải của đoạn văn */
+    margin-left: 350px; /* Khoảng cách bên trái của đoạn văn */
+    font-size: larger; /* Kích thước chữ lớn hơn bình thường */
+    text-align: justify; /* Căn chỉnh văn bản để trải rộng đều từ lề trái đến lề phải, với các khoảng cách giữa các từ được điều chỉnh để tạo ra các đường viền thẳng hàng. */
+  }
+  
+  /* HIẾU */
+  /* Phần thanh tìm kiếm */
+  .advanced-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin: 20px auto;
+    padding: 10px;
+  }
+  .search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    height: 48px; /* Đặt chiều cao để ngang bằng với nút lọc */
+  }
+  .search-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    height: 48px; /* Đặt chiều cao để ngang bằng với nút lọc */
+  }
+  
+  /* Phần dropdown */
+  .dropdown {
+    position: relative;
+    height: 48px; /* Đảm bảo chiều cao của dropdown bằng với thanh tìm kiếm */
+    display: flex;
+    align-items: center; /* Căn giữa nút "Tất cả vùng miền" theo chiều dọc */
+  }
+  /* Nội dung của dropdown - ban đầu ẩn */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Đặt phần dropdown content bên dưới nút */
+    left: 0;
+    background-color: white; /* Nền trắng */
+    color: black; /* Màu chữ đen */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1;
+    padding: 10px;
+    border: 1px solid black; /* Đường viền đen */
+  }
+  
+  /* Hiển thị dropdown khi di chuột vào  */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /* Định dạng cho từng mục trong dropdown */
+  .dropdown-content a {
+    color: black; /* Màu chữ đen */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Hiệu ứng hover cho các mục trong dropdown */
+  .dropdown-content a:hover {
+    background-color: #ddd; /* Màu nền xám nhạt khi hover */
+    color: black; /* Màu chữ vẫn là màu đen */
+  }
+  /* Phần bộ lọc vùng miền */
+  .filter-region {
+    display: flex;
+    justify-content: center; /* Căn giữa nút "Tất cả vùng miền" */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin: 0; /* Xóa khoảng cách trên và dưới */
+    padding: 10px;
+    background-color: transparent; /* Bỏ màu nền */
+    height: 48px; /* Đặt chiều cao cho phần lọc vùng miền tương ứng với thanh tìm kiếm */
+  }
+  
+  /* Định dạng cho nút lọc "Tất cả vùng miền" */
+  .region-filter-item {
+    padding: 10px 20px;
+    background-color: transparent; /* Bỏ màu nền */
+    color: black; /* Màu chữ đen */
+    text-decoration: none;
+    border: 2px solid black; /* Đường viền đen */
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 18px;
+    line-height: 1.2; /* Điều chỉnh chiều cao dòng để phù hợp với thanh tìm kiếm */
+  }
+  
+  /* Hiệu ứng hover cho nút */
+  .region-filter-item:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Nền đen trong suốt khi hover */
+    color: white; /* Màu chữ trắng khi hover */
+    transform: scale(1.05);
+  }
+  
+  /* Phần bộ lọc dịch vụ */
+  .filter-service {
+    display: flex;
+    justify-content: center; /* Căn giữa nút "Tất cả dịch vụ" */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin: 0; /* Xóa khoảng cách trên và dưới */
+    padding: 10px;
+    background-color: transparent; /* Bỏ màu nền */
+    height: 48px; /* Đặt chiều cao cho phần lọc dịch vụ tương ứng với thanh tìm kiếm */
+  }
+  
+  /* Định dạng cho nút lọc "Tất cả dịch vụ" */
+  .service-filter-item {
+    padding: 10px 20px;
+    background-color: transparent; /* Bỏ màu nền */
+    color: black; /* Màu chữ đen */
+    text-decoration: none;
+    border: 2px solid black; /* Đường viền đen */
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 18px;
+    line-height: 1.2; /* Điều chỉnh chiều cao dòng để phù hợp với thanh tìm kiếm */
+  }
+  
+  /* Hiệu ứng hover cho nút */
+  .service-filter-item:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Nền đen trong suốt khi hover */
+    color: white; /* Màu chữ trắng khi hover */
+  }
+  
+  .home-button {
+    background-color: none; /* Nền trắng */
+    color: black; /* Màu chữ đen */
+    border: 2px solid black; /* Viền đen */
+    border-radius: 25px; /* Bo tròn góc */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    cursor: pointer; /* Hiển thị con trỏ chuột như một nút bấm */
+    display: flex; /* Sử dụng flexbox để căn chỉnh */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100%; /* Chiều cao bằng với phần chứa */
+    font-size: 18px; /* Kích thước chữ bằng với "Tất cả vùng miền" */
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu mượt mà */
+  }
+  
+  .home-button:hover {
+    background-color: black; /* Nền đen khi hover */
+    color: white; /* Màu chữ trắng khi hover */
+  }
+  
+  .home-button i {
+    margin-right: 5px; /* Khoảng cách giữa biểu tượng và chữ */
+  }
+  
+  /* MINH */
+  .main h1 {
+    font-size: 200%;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 900px;
+  }
+  
+  .main img {
+    height: 500px;
+    width: 760px;
+    margin-left: 370px;
+    padding: 30px;
+    text-align: center;
+  }
+  .main h2 {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .img_dong {
+    margin-left: 200px;
+    text-align: center;
+  }
+  h4 {
+    text-align: center;
+  }
+  
+  .main img {
+    padding-left: 0px;
+    width: 620px;
+    margin-left: 335px;
+    padding-bottom: 10px;
+  }
+  .noidung {
+    padding-top: 100px;
+  }
+  .cuoi {
+    margin-top: 70px;
+  }

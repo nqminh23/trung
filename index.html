@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu Cảnh đẹp và Ẩm thực Việt Nam</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- liên kết css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Protest+Guerrilla&display=swap"
+      rel="stylesheet"
+    />
+    <!-- liên kết font chữ tiêu đề -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <!-- LƯU MINH HIẾU -->
+      <div class="advanced-search-container">
+        <button class="home-button">
+          <i class="fas fa-home"></i> Trang Chủ
+        </button>
+
+        <!-- Bộ lọc theo vùng miền -->
+        <div class="filter-region">
+          <div class="dropdown">
+            <a href="#" class="region-filter-item">Tất cả vùng miền</a>
+            <div class="dropdown-content">
+              <a href="https://daothanhdat04.github.io/MIENBAC/">Miền Bắc</a>
+              <a href="https://daothanhdat04.github.io/MIENTRUNG/"
+                >Miền Trung</a
+              >
+              <a href="https://daothanhdat04.github.io/MIENNAM/">Miền Nam</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bộ lọc dịch vụ -->
+        <div class="filter-service">
+          <div class="dropdown">
+            <a href="#" class="service-filter-item">Tất cả dịch vụ</a>
+            <div class="dropdown-content">
+              <a href="#">Tour du lịch</a>
+              <a href="#">Đặt xe</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thanh tìm kiếm và nút -->
+        <input
+          type="text"
+          id="keyword-input"
+          class="search-input"
+          placeholder="Tìm kiếm địa điểm, món ăn, từ khóa..."
+        />
+        <button class="search-button" onclick="advancedSearch()">
+          Tìm kiếm
+        </button>
+      </div>
+      <!--ĐÀO THÀNH ĐẠT-->
+      <h1>VIỆT NAM TRAVEL</h1>
+      <div class="intro">
+        <svg
+          class="star"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2l2.45 7.6h8.05l-6.5 4.8 2.45 7.6-6.5-4.8-6.5 4.8 2.45-7.6-6.5-4.8h8.05z"
+          />
+        </svg>
+      </div>
+      <div class="banner">
+        <div class="slides">
+          <img
+            src="https://www.travelvietnam.com/images/travelvietnam/nice_landscape_halong_bay_vietnam.jpg"
+            alt="Cảnh đẹp Miền Bắc"
+            class="slide"
+          />
+          <img
+            src="https://www.travelvietnam.com/images/travelvietnam/nice_landscape_ninh_binh_vietnam.jpg"
+            srcset="image-retina.jpg 3x"
+            alt="Ẩm thực Miền Trung"
+            class="slide"
+          />
+          <img
+            src="https://www.travelvietnam.com/images/travelvietnam/woman_preparing_cooking_class_hoi_an_vietnam.jpg"
+            alt="Cảnh đẹp Miền Nam"
+            class="slide"
+          />
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="regions">
+        <div class="region" id="north">
+          <!-- Gắn thẻ "region" dẫn đến link bằng id -->
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnWLN3fXqxZes-8enn1HLbxZ9E4b8EkvufrA&ss"
+            class="region"
+            alt="Miền Bắc"
+          />
+          <a
+            href="https://khanh004.github.io/web/baitaplon.html"
+            class="learn-more"
+            >Miền Bắc</a
+          >
+        </div>
+        <div class="region" id="central">
+          <img
+            src="https://static.vinwonders.com/2022/07/du-lich-mien-trung-14.jpg"
+            class="region"
+            alt="Miền Trung"
+          />
+          <a
+            href="https://khanh004.github.io/web/mientrung.html"
+            class="learn-more"
+            >Miền Trung</a
+          >
+        </div>
+        <div class="region" id="south">
+          <img
+            src="https://dulichao.net/wp-content/uploads/2018/12/chia-se-kinh-nghiem-du-lich-mien-nam.jpg"
+            class="region"
+            alt="Miền Nam"
+          />
+          <a
+            href="https://khanh004.github.io/web/miennam.html"
+            class="learn-more"
+            >Miền Nam</a
+          >
+        </div>
+      </section>
+    </main>
+    <div class="noidung">
+      <div class="main">
+        <h1>Những cảnh đẹp và ẩm thực miền Trung</h1>
+        <p>
+          Khu vực miền Trung, hay được gọi là miền Trung Bộ, là khu vực có địa
+          hình nhiều đồi núi và đồng bằng nhỏ hẹp nằm giữa hai miền Bắc – Nam.
+          Các dãy núi phía Tây kéo dài dọc theo bờ biển và phía Đông, bao bọc
+          lấy dải đất nơi đây. Đây là đặc điểm nổi bật của khu vực miền Trung.
+          Miền Trung được chia thành ba vùng nhỏ: Bắc Trung Bộ, Duyên hải miền
+          Trung và Tây Nguyên, với Đà Nẵng là thành phố trung tâm.<br />Khí hậu
+          miền Trung chỉ có hai mùa mưa và khô. Khi mùa hè đến, gió mùa Tây Nam
+          tràn qua dãy Trường Sơn, mang đến thời tiết khô nóng cho vùng duyên
+          hải Nam Trung Bộ. Đây không phải là trở ngại mà còn là cơ hội để miền
+          Trung trở thành điểm đến lý tưởng vào dịp hè. Tận dụng vẻ đẹp tự nhiên
+          vốn có, khu vực miền Trung đang từng bước chuyển mình thành “điểm du
+          lịch hè quốc gia”, nhiều người lại đổ về các bãi biển miền Trung vào
+          mỗi mùa hè để vui chơi, thư giãn và giải nhiệt.<br />Khi nói đến du
+          lịch, các địa danh nổi tiếng, các di tích lịch sử và văn hóa luôn là
+          khía cạnh cần thiết thu hút du khách. Khu vực miền Trung được thiên
+          nhiên ban tặng với nhiều danh lam thắng cảnh “say lòng người”, những
+          bãi biển trữ tình, và các địa danh văn hóa, thiên nhiên nổi bật khác.
+          Đặc biệt, địa điểm này có một số cổ vật có ý nghĩa lịch sử gắn liền
+          với lịch sử dựng nước và giữ nước.
+        </p>
+        <h2>1. Bà Nà Hills - Đà Nẵng</h2>
+        <p>
+          Thuộc hệ thống thương hiệu giải trí Sun World, cách trung tâm thành
+          phố Đà Nẵng hơn 20 km, Sun World Ba Na Hills là quần thể du lịch nghỉ
+          dưỡng kết hợp vui chơi giải trí đẳng cấp bậc nhất Việt Nam. Nằm ở độ
+          cao 1.487m so với mực nước biển, Sun World Ba Na Hills được mênh danh
+          là “chốn bồng lai tiên cảnh”, sở hữu khí hậu tuyệt vời cùng cảnh quan
+          thiên nhiên kỳ thú. Đến với Sun World Ba Na Hills để trải nghiệm khí
+          hậu 4 mùa trong một ngày cùng nhiều hoạt động lễ hội, vui chơi giải
+          trí, ẩm thực hấp dẫn đa dạng.<br />Đến với Sun World Ba Na Hills, du
+          khách có cơ hội được thăm quan và trải nghiệm những công trình và điểm
+          đến độc đáo, có một không hai. Một trong những công trình được du
+          khách yêu thích nhất khi đến với Ba Na Hills là Làng Pháp, du khách
+          bước vào hành trình trải nghiệm một không gian sống tinh tế, đậm chất
+          thơ của một nước Pháp cổ điển và lãng mạn với những công trình kiến
+          trúc độc đáo như: quảng trường, thị trấn, làng mạc, khách sạn, khám
+          phá nhà thờ Saint Dennis – công trình có kiến trúc mái vòm cung với
+          những bức tường đá xù xì sống động.
+        </p>
+        <img
+          src="https://banahills.sunworld.vn/wp-content/uploads/2024/04/H_2021_00994-1536x1024.jpg"
+          alt=""
+        />
+        <p>
+          Ngoài ra, không thể bỏ lỡ tuyệt tác Cầu Vàng – Kỳ quan thế giới mới,
+          mang vóc dáng được nâng đỡ bởi đôi bàn tay của những người khổng lồ
+          vươn ra từ vách núi, vẻ đẹp tráng lệ của Cầu Vàng gây ấn tượng mạnh mẽ
+          với du khách trong nước và Quốc Tế. Nằm ở độ cao 1.414m so với mức
+          nước biển, Cầu Vàng ẩn chứa những vẻ đẹp riêng, độc đáo, mang đến cho
+          du khách những ấn tượng khác biệt. Năm 2021, Cầu Vàng vinh dự được The
+          Daily Mail bình chọn là một trong 10 kỳ quan thế giới mới.
+        </p>
+        <img
+          src="https://banahills.sunworld.vn/wp-content/uploads/2024/04/DJI_0004-1536x879.jpg"
+          alt=""
+        />
+        <p>
+          i chơi ở bất cứ đâu, ẩm thực luôn là thứ làm du khách “nhớ nhung” và
+          cảm thấy thích thú, muốn quay lại. Không phải tự nhiên mà du lịch Đà
+          Nẵng được lòng du khách đến vậy. Ngoài cảnh đẹp mê hồn, nơi đây còn sở
+          hữu nền ẩm thực ngon "nức lòng" khách du lịch khi đến đây.
+        </p>
+        <img
+          src="https://static.vinwonders.com/2022/06/mi-quang-da-nang-thumb.png"
+          alt=""
+        />
+        <h4>Mỳ Quảng Đà Nẵng</h4>
+        <p>
+          Nhắc đến đặc sản Đà Nẵng chắc chắc mì Quảng sẽ là món ăn đứng đầu bảng
+          và được kể đến đầu tiên. Mì Quảng Đà Nẵng chính là niềm tự hào của
+          những người con xứ Quảng. Chẳng ai biết món ăn dân dã này có từ lúc
+          nào nhưng hương vị bát mì Quảng giờ không chỉ gói gọn ở Đà Nẵng –
+          Quảng Nam mà đã lan truyền đi khắp mọi miền. Khiến nhiều du khách tò
+          mò tìm đến chỉ để thưởng thức một lần.<br />Mì Quảng cầu kỳ từ sợi
+          bánh đến nước lèo, đồ ăn kèm. Tất cả đều được những người đầu bếp tài
+          hoa chuẩn bị kỹ càng thì mới ra được bát mì Quảng ngon đúng vị. Sợi mì
+          làm từ gạo còn nguyên vỏ cám, đem ngâm rồi xay tay, vẫn giữ vẹn nguyên
+          chất dinh dưỡng của hạt gạo. Khi ăn vào cảm thấy bùi bùi, thơm hơn hẳn
+          các loại mì khác. Mì Quảng Đà Nẵng có thể được chế biến từ thịt gà,
+          thịt bò cho đến cá lóc, cua, ếch. Ấy thế nhưng linh hồn của cả món ăn
+          lại chính là nước lèo đậm đà. Khác với nhiều món ăn, nước dùng của mì
+          Quảng chỉ xâm xấp bề mặt, vừa đủ ăn chứ không chan đầy cả tô.<br />Nước
+          dùng nấu mì được ninh từ xương lợn, ba chỉ, ức gà, tôm tươi, bột nghệ,
+          dầu điều...cùng một vài gia vị khác cho hương vị thêm đậm đà. Khi tô
+          mì nóng hổi được phục vụ đem lên bàn, bạn chớ vội vàng ăn ngay mà hãy
+          để nước dùng thấm vào từng sợi mì. Món ăn sẽ thêm phần béo ngậy. Nhớ
+          rắc thêm vốc đậu phộng, thìa tương ớt, bẻ miếng bánh đa giòn tan vào
+          thế thì bát mì mới tròn vị.
+        </p>
+        <img
+          src="https://static.vinwonders.com/2022/12/banh-canh-Da-Nang-13.jpg"
+          alt=""
+        />
+        <h4>Bánh canh Đà Nẵng</h4>
+        <p>
+          Bánh canh, xíu quẩy…chỉ ở Đà Nẵng mới có kiểu ăn Bánh Canh là như vậy.
+          Một món ăn này rất ngon và lạ miệng đấy bạn à. Thưởng thức một tô bánh
+          canh nóng, khói bốc nghi ngút với một cây xíu quẩy thì đúng là hết ý.
+          Sau khi tham quan các địa điểm du lịch Đà Nẵng nổi tiếng, du khách hãy
+          thử thưởng thức ẩm thực Đà Nẵng từ món mỳ quảng, bún chả cá đến bánh
+          canh đều rất thu hút và hấp dẫn.<br />Ở Đà Nẵng, có rất nhiều món bánh
+          canh khác nhau: Bánh canh cá lóc, bánh canh thịt chả, bánh canh
+          cua…Món Bánh canh có thể được nấu từ bột gạo, bột mì, nhưng phổ biến
+          hơn cả là bột lọc (làm từ củ sắn). Sợi bánh canh thường to gần bằng
+          chiếc đũa, dài và dai. Ăn bánh canh phải “vừa ăn, vừa thổi” vì chỉ khi
+          bắt đầu ăn, sợi bánh mới được thả vào nồi nước đang sôi sùng sục. Nếu
+          không, bánh sẽ nở to, đặc queo. Món ăn này càng thích hơn khi ăn cùng
+          với xúi quẫy.<br />
+          Nước có thể được nấu từ tôm, thịt, xương heo, chả… Riêng với bánh canh
+          cá, thịt cá luôn được rim rất kỹ, thấm gia vị và thơm lừng. Bởi vậy,
+          ngoài vị ngọt của nước, vị dai của sợi bánh, người ăn còn thưởng thức
+          những miếng cá được kho đến keo lại, mặn mặn, cay cay. Khi đến du lịch
+          Đà Nẵng, bạn có thể chọn món ăn này cho buổi sáng hoặc buổi chiều….
+          rất ngon và đậm đà.
+        </p>
+        <h2>2. Phố cổ Hội An - Quảng Nam</h2>
+        <p>
+          Du lịch phố cổ Hội An là trải nghiệm thú vị và đáng nhớ với nhiều bạn
+          trong và ngoài nước. Phố cổ Hội An là địa điểm du lịch nổi tiếng cách
+          trung tâm thành phố Đà Nẵng khoảng 30km về phía Tây Nam. Không ồn ào,
+          náo nhiệt, Hội An mang vẻ đẹp bình lặng và cổ kính. Sức hấp dẫn của đô
+          thị hơn 400 năm tuổi xuất phát từ những kiến trúc cổ, những nhà mái
+          ngói rêu phong, những con phố đèn lồng đầy màu sắc...
+        </p>
+        <img
+          src="https://bazantravel.com/cdn/medias/uploads/67/67385-hoi-an-1-700x466.jpg"
+          alt=""
+        />
+        <h4>Phố cổ Hội An nhìn từ trên cao</h4>
+        <p>
+          Ngoài ra, Hội An cũng nổi tiếng với những lễ hội truyền thống đặc sắc
+          như: lễ hội thành hoàng làng, lễ tưởng niệm các tổ sư ngành nghề, lễ
+          kỷ niệm các bậc thánh nhân tôn giáo,... và các trò chơi dân gian như
+          hò khoan, hò giã gạo, bài chòi,...<br />
+          Không chỉ được đắm mình trong vẻ đẹp bình dị của phố cổ, du lịch phố
+          cổ Hội An bạn còn được khám phá sự giao thoa giữa các nền văn hóa
+          phương Đông đến từ Nhật Bản, Trung Quốc và văn hóa Việt. Bởi Hội An
+          vốn là thương cảng đông đúc và sầm uất nhất tồn tại dưới triều Nguyễn
+          cách đây khoảng 200 năm, chính sự giao thương giữa Việt Nam và các
+          nước khác (Nhật Bản, Trung Quốc,...) đã tạo nên một Hội An đa văn hóa,
+          đa sắc màu tồn tại đến ngày nay...
+        </p>
+        <h2>3. Kinh thành Huế - Cố đô Huế</h2>
+        <p>
+          Kinh thành Huế là hệ thống hoàng cung ghi dấu thời vàng son của triều
+          Nguyễn qua 13 đời vua. Đây là địa điểm thu hút đông đảo du khách trong
+          và ngoài nước đến tham quan, chiêm ngưỡng. Bài viết sẽ giúp bạn tìm
+          hiểu chi tiết về tòa thành cổ này để có những trải nghiệm tham quan
+          trọn vẹn khi du lịch Huế.<br />Kinh thành Huế là tòa thành được triều
+          đại nhà Nguyễn xây dựng để làm nơi đóng đô từ khi lên ngôi và trong
+          suốt 143 trị vì (từ năm 1802 đến khi thoái vị năm 1945). Công trình
+          cùng với những di tích Cố đô Huế được UNESCO công nhận là Di sản Văn
+          hoá Thế giới.
+        </p>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Ngomon2.jpg/1200px-Ngomon2.jpg"
+          alt=""
+        />
+        <p>
+          Kinh thành Huế tọa lạc phía Bắc sông Hương, trên địa phận của bốn
+          phường: Đông Ba, Tây Lộc, Thuận Hòa, Thuận Lộc thuộc thành phố Huế.
+          Phía Nam tòa thành giáp với đường Trần Hưng Đạo, đường Lê Duẩn; phía
+          Bắc giáp với đường Tăng Bạt Hổ, Đào Duy Anh; phía Đông giáp đường Phan
+          Đăng Lưu, Huỳnh Thúc Kháng và phía Tây giáp đường Lê Duẩn.<br />Kinh
+          thành Huế được xây dựng dưới triều vua Gia Long. Năm 1803, vua Gia
+          Long cho tiến hành khảo sát vị trí và khởi công xây dựng vào năm 1805.
+          Công trình được hoàn thành vào năm 1832, dưới triều vua Minh Mạng.
+        </p>
+        <img
+          src="https://static.vinwonders.com/2023/02/kinh-thanh-hue-1.jpg"
+          alt=""
+        />
+        <p>
+          Kinh thành Huế là công trình có quy mô đồ sộ với sự tham gia thi công
+          của hàng chục ngàn người và hàng triệu mét khối đất đá cùng khối lượng
+          công việc khổng lồ như: lấp sông, đào hào, di dân, dời mộ, lấp thành.
+          Thời gian đầu, tòa thành được đắp bằng đất và tiến hành xây gạch vào
+          cuối đời vua Gia Long. Kiến trúc công trình là sự kết hợp chặt chẽ của
+          nguyên tắc kiến trúc truyền thống cùng triết lý phương Đông, thuyết âm
+          dương ngũ hành Trung Hoa. Đặc biệt, thiết kế của Kinh thành Huế còn có
+          sự ảnh hưởng từ kiến trúc quân sự phương Tây kiểu Vauban. Chính vì
+          thế, công trình không chỉ có kiến trúc đẹp mắt mà còn có ý nghĩa to
+          lớn về phong thủy và quân sự.<br />i đã từng một lần đến Huế thì chắc
+          hẳn không thể quên được các cảnh đẹp trữ tình, con người nồng hậu và
+          đặc biệt là đặc sản Huế - một trong những yếu tố làm nên tinh hoa ẩm
+          thực Việt.Ẩm thực Huế luôn khiến cho người ta nhớ mãi nhờ hương vị và
+          cách chế biến độc đáo, mang đậm nét tinh hoa văn hóa dân tộc. Khác với
+          những vùng miền khác, đặc sản Huế có vị đậm đà, vị cay nồng của người
+          miền Trung nhưng lại có sự hấp dẫn đến lạ. Nếu có cơ hội đến Huế, bạn
+          không nên bỏ qua những món ăn sau đây:
+        </p>
+        <img
+          src="https://daotaobeptruong.vn/wp-content/uploads/2021/02/com-hen-hua.jpg"
+          alt=""
+        />
+        <h4>Cơm hến Huế</h4>
+        <p>
+          Cơm hến là một đặc sản ẩm thực Huế. Cơm hến được trình bày dưới hình
+          thức là cơm nguội trộn với hến xào qua dầu và gia vị, nước hến, mắm
+          ruốc, môn bạc hà, bẹ chuối, rau má, rau thơm, giá đỗ, tóp mỡ hoặc bóng
+          bì chiên giòn, sợi mì chiên giòn, ớt màu, đậu phộng nguyên hạt, ớt
+          chưng, tiêu, bột ngọt và muối.<br />Cơm hến đã trở thành một trong
+          những món ngon “khó cưỡng” đối với du khách. Đến với vùng đất cố đô,
+          bạn nên ít nhất một lần nếm thử cơm hến. Đây là món ăn mang lại cho
+          thực khách cảm giác vừa thanh đạm lại vô cùng đậm đà phù hợp với đông
+          đảo du khách. Không chỉ đặc biệt ở hương vị mà những nguyên liệu đều
+          tươi ngon, đậm vị. Sẽ là thiếu sót lớn nếu như đến với Huế bạn chưa
+          nếm thử đặc sản này.<br />Theo người xưa kể lại, nguồn gốc cơm hến có
+          cách đây hơn 200 năm. Một hôm, gia đình người đàn bà họ Huỳnh không
+          bắt được tôm, cá nên đành ăn cơm nguội với hến. Bởi mùi vị đặc biệt
+          nên từ đó nó món ăn này đã trở nên phổ biến khắp cồn Hến và đông đảo
+          người dân ở Huế.Dưới đời vua Thành Thái, bà Nguyễn Thị Thẹp đến cào
+          hến tiến vua tại cồn Hến. Lúc này, vua phong hiệu lập ra phường Hến và
+          thưởng thức món cơm Hến. Kể từ đó, cơm hến ở cồn Hến trở thành vật
+          phẩm cung đình mỗi dịp lễ Tết.
+        </p>
+        <img
+          src="https://spirit.vietnamairlines.com/wp-content/uploads/2024/04/nau-bun-bo-hue-chuan-vi-tai-nha-voi-cot-co-dac-quoc-viet-foods_59b7ba1543004e67967af718d8afc32b.webp"
+          alt=""
+        />
+        <h4>Bún bò Huế</h4>
+        <p>
+          Bún bò Huế xưa ra đời từ thời chúa Nguyễn Hoàng (khoảng thế kỷ thứ
+          16). Tương truyền, xưa có cô Bún xinh đẹp, giỏi giang, thạo nghề làm
+          bún. Tại làng Vân Cù (nay thuộc thị xã Hương Trà, tỉnh Thừa Thiên
+          Huế), cô Bún đã sáng tạo ra cách chế biến một món ăn mới: Lấy thịt bò
+          nấu thành nước dùng cho món bún. Từ đó, món bún bò ra đời, được lưu
+          giữ và phát triển qua nhiều thế hệ. Đến nay, bún bò Huế đã được cải
+          biên với sự có mặt của nhiều nguyên liệu khác như giò heo, tiết lợn,
+          chả cua,...<br />Bún bò Huế có nhiều điểm khác biệt so với món bún bò
+          của những địa phương khác. Món ăn này nổi tiếng đến mức gần như ai đã
+          đi du lịch Huế cũng phải thưởng thức ít nhất một lần.<br />Một tô bún
+          bò chuẩn vị Huế sẽ gồm sợi bún, thịt bò, tiết heo, chả cua và nước
+          dùng. Nguyên liệu làm bún là bột gạo pha với bột lọc theo tỷ lệ chuẩn
+          để sợi bún có độ dai vừa phải. Thịt bò được chọn là phần bắp chân
+          trước, nạm bò hoặc bắp hoa màu đỏ tươi, mỡ bò màu vàng nhạt. Chả cua
+          màu vàng cam bắt mắt được làm từ gạch và thịt cua xay nhuyễn với vị
+          béo, bùi tự nhiên. “Linh hồn” của món bún bò xứ Huế chính là nước
+          dùng. Nước dùng được ninh từ xương ống bò nên có vị ngọt đậm đà. Ngoài
+          ra, người ta còn thêm vào nước dùng chút mắm ruốc và sả để dậy mùi
+          thơm nồng hấp dẫn.<br />Một tô bún bò Huế ngon, chuẩn vị đất cố đô
+          phải có hương thơm hấp dẫn. Tô bún có sắc cam của dầu điều, sắc nâu
+          của thịt bò, tiết lợn và sắc xanh của hành, mùi, thêm chút giá đỗ
+          thanh mát. Món bún với đủ vị cay, ngọt, bùi đã thực sự làm “xiêu lòng”
+          thực khách.
+        </p>
+        <h2>4. Mũi Né - Phan Thiết</h2>
+        <p>
+          Mũi Né là một điểm đến được yêu thích trong bản đồ du lịch Phan Thiết.
+          Nơi đây không chỉ nổi tiếng với biển xanh, cát trắng mà còn có nhiều
+          khu ẩm thực sầm uất và nơi nghỉ dưỡng sang trọng khiến mọi du khách
+          thích mê.<br />Mũi Né là tên gọi của một mũi biển và cũng là một
+          phường của thành phố Phan Thiết (tỉnh Bình Thuận). Cách trung tâm
+          thành phố khoảng 20km về phía Đông Bắc, Mũi Né chính là khu du lịch
+          trọng điểm của Phan Thiết. Mũi Né sở hữu vị trí địa lý thuận lợi và có
+          diện tích khoảng 35,41 km2. Vì thế nơi đây đã trở thành thủ phủ du
+          lịch nổi bật, thu hút nhiều lượt du khách hằng năm của tỉnh Bình
+          Thuận. Du khách có thể dễ dàng di chuyển đến Phan Thiết bằng xe ô tô,
+          xe khách, tàu lửa tùy theo địa điểm xuất phát.
+        </p>
+        <img
+          src="https://cdn.media.dulich24.com.vn/diemden/mui-ne-6527/mui-ne.jpg"
+          alt=""
+        />
+        <p>
+          Biển Mũi Né còn nhiều nơi chưa được khai thác nên vẫn còn mang vẻ đẹp
+          nguyên sơ, nước biển xanh trong, bờ cát dài trắng xóa dưới bầu trời
+          xanh biếc bao la. Mũi Né có rất nhiều bãi biển tuyệt đẹp đang chờ bạn
+          khám phá. Tất cả đều khoác lên mình vẻ đẹp bình dị, rất thơ mộng và
+          đầy trữ tình. Khi đến đây, du khách có thể lần lượt ghé đến: Hòn Rơm
+          Mũi Né, bãi Rạng, Cổ Thạch, Gành Son, Thuận Quý, Cam Bình…
+        </p>
+        <img src="https://bbt.1cdn.vn/2023/02/06/doi-cat.jpg" alt="" />
+        <p>
+          Ngoài những bãi biển thơ mộng, Những đồi cát Mũi Né mênh mông luôn là
+          địa điểm du lịch Mũi Né hấp dẫn với mọi du khách. Đồi cát bay ma
+          thuật, biến đổi theo từng cơn gió, mang 18 gam màu khác nhau từ lâu đã
+          trở thành niềm cảm hứng của biết bao thi nhân, họa sĩ và nhiếp ảnh
+          gia. Bên cạnh đó, Bàu Trắng Mũi Né mang vẻ đẹp tinh khôi cũng là một
+          điểm đến bạn không nên bỏ qua khi đến Mũi Né. Du khách có thể trượt
+          ván cát, đi xe địa hình và chụp vô vàn hình sống ảo tại nơi này.<br />Mũi
+          Né - Phan Thiết không chỉ nổi tiếng với cảnh biển đẹp mắt, mà còn là
+          thiên đường ẩm thực với đa dạng đặc sản hải sản tươi ngon và văn hóa
+          ẩm thực dân dã độc đáo. Đến du lịch Mũi Né, bạn sẽ có cơ hội thưởng
+          thức những món ngon mang hương vị biển và địa phương, chắc chắn sẽ làm
+          phong phú thêm cho hành trình khám phá của mình.
+        </p>
+        <img
+          src="https://www.mustgo.vn/files/uploads/1565714862-kham-pha-am-thuc-mui-ne-1.jpg"
+          alt=""
+        />
+        <h4>Món Dông - Đặc sane Mũi Né</h4>
+        <p>
+          đây là một món ăn đặc sản đặc biệt của vùng đất Mũi Né - Phan Thiết.
+          Món ăn này được chế biến từ con Dông (theo tiếng địa phương là kỳ
+          dông), là một loài bò sát sống chủ yếu ở những vùng cát. Dông thuộc họ
+          bò sát có kích thước lớn hơn thằn lằn, chiều dài từ 20-30cm, thường
+          sống trong các hang ở bụi rậm.<br />Thịt Dông trắng như thịt gà nhưng
+          có vị ngọt, bùi và mềm hơn. Dông được chế biến thành nhiều món ăn
+          ngon, đặc biệt là gỏi Dông. Thịt Dông luộc kết hợp với xoài non, lá
+          cóc rừng, ớt và lá cà ri rừng. Vị thơm của cà ri, vị chua của xoài và
+          lá cóc, cùng với thịt Dông, tạo hương vị độc đáo. Người Chăm thường
+          nói "nhất đầu thỏ, nhì mỏ Dông" để miêu tả sự độc đáo của món ăn này
+          này.
+        </p>
+        <img
+          src="https://static.vinwonders.com/production/banh-trang-nuong-phan-thiet-01.jpg"
+          alt=""
+        />
+        <h4>Bánh tráng Phan Thiết</h4>
+        <p>
+          Bánh tráng nướng Phan Thiết (còn được biết đến với tên gọi bánh tráng
+          mắm ruốc nướng) là một món ăn vặt Phan Thiết hấp dẫn và thơm ngon làm
+          khuấy đảo thực khách tứ phương, nhất là giới trẻ. Bánh tráng nướng mắm
+          ruốc Phan Thiết có hình dáng tương tự như bánh tráng cuốn Nam Bộ, tuy
+          nhiên điểm đặc biệt ở đây là bánh được cuộn lại bên ngoài từng chút
+          một trong quá trình nướng trên bếp than. Với lớp bánh tráng giòn rụm
+          được phết lên thêm một lượng mắm ruốc vừa phải, kết hợp cùng một vài
+          topping đặc sắc như trứng cút luộc, nem chua, chả lụa, ruốc, tương ớt
+          và một chút mỡ hành béo ngậy. Tất cả được chủ quán đem nướng trên than
+          hồng. Lúc này bạn sẽ cảm nhận được mùi thơm đặc trưng của bánh tráng
+          nướng mắm ruốc Phan Thiết lan tỏa khắp không gian quán.<br />Sự hòa
+          quyện hoàn hảo giữa độ mặn mắm ruốc vừa đủ, vị chua nhẹ đến từ nem
+          chua và một chút cay nồng của tương ớt đã làm nên một đặc sản Phan
+          Thiết khó quên trong lòng thực khách. Hương vị ấy sẽ tạo cho bạn một
+          trải nghiệm ẩm thực đầy thú vị và đậm chất Phan Thiết.
+        </p>
+      </div>
+    </div>
+    <footer class="cuoi">
+      <p>
+        &copy; 2024 Giới thiệu Cảnh đẹp và Ẩm thực Việt Nam. Tất cả quyền được
+        bảo lưu.
+      </p>
+    </footer>
+  </body>
+  <script src="scripts.js"></script>
+  <!--liên kết js-->
+</html>
